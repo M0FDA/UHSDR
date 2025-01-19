@@ -37,6 +37,7 @@
 
 #include "osc_si5351a.h"
 #include "osc_si570.h"
+#include "osc_si569.h"
 
 #include "audio_nr.h"
 #include "audio_agc.h"

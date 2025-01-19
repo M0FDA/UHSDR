@@ -1346,7 +1346,7 @@ const BandInfo* RadioManagement_GetBand(uint32_t freq)
     // generic band, which we return if we can't find a match
 
 
-    // first try the previously selected band, and see if it is an match
+    // first try the previously selected band, and see if it is a match
     if (RadioManagement_FreqIsInBand(band_scan_old, freq) == true)
     {
         band_scan = band_scan_old;
@@ -1388,8 +1388,8 @@ uint32_t RadioManagement_SSB_AutoSideBand(uint32_t freq) {
 }
 
 /**
- * Call this to switch off transmit as soon as possible
- * Please note, this is an asynchronous request, there may be a delay until TX is switched off!
+ * Call this to switch on transmit as soon as possible
+ * Please note, this is an asynchronous request, there may be a delay until TX is switched on!
  */
 void RadioManagement_Request_TxOn()
 {
@@ -1797,10 +1797,12 @@ void RadioManagement_HandleRxIQSignalCodecGain()
         rfg_timer = 0;
     }
 
-    // rfg_calc = (auto_rfg + 1) * 2 + 13; --> 9 * 2 + 13 = 31 !
+    /*/ rfg_calc = (auto_rfg + 1) * 2 + 13; --> 9 * 2 + 13 = 31 !  <-- (8 + 1) * 2 + 13 actually
     rfg_calc += 1;  // offset to prevent zero
+   */
+    // rfg_calc = auto_rfg * 2 + (13 + 2); --> 8 * 2 + 15 = 31 , but with 1 less calculation each time routine called than previous method
     rfg_calc *= 2;  // double the range of adjustment
-    rfg_calc += 13; // offset, as bottom of range of A/D gain control is not useful (e.g. ADC saturates before RX hardware)
+    rfg_calc += 15; // fixed offset, as bottom of range of A/D gain control is not useful (e.g. ADC saturates before RX hardware)
     if(rfg_calc >31)    // limit calc to hardware range
     {
         rfg_calc = 31;

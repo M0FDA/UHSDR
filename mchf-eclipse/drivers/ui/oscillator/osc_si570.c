@@ -101,7 +101,7 @@ typedef struct OscillatorState
 } OscillatorState;
 
 
-#define SMOOTH_DELTA (0.0035)
+#define SMOOTH_DELTA (3500)
 // Datasheet says 0.0035  == 3500PPM but there have been issues if we get close to that value.
 // to play it safe, we make the delta range a little smaller.
 // if you want to play with it, tune to the end of the 10m band, set 100 khz step width and dial around
@@ -278,7 +278,7 @@ static float64_t Si570_GetFDCOForFreq(float64_t new_freq, uint8_t n1, uint8_t hs
 static bool Si570_FindSmoothRFreqForFreq(const Si570_FreqConfig* cur_config, Si570_FreqConfig* new_config) {
     float64_t fdco = Si570_GetFDCOForFreq(new_config->freq, cur_config->n1, cur_config->hsdiv);
     bool retval = false;
-    float64_t fdiff = (fdco - cur_config->fdco)/cur_config->fdco;
+    float64_t fdiff = (fdco - cur_config->fdco)*1000000/cur_config->fdco;
 
     if (fdiff < 0.0)
     {

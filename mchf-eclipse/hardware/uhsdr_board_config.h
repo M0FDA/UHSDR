@@ -170,6 +170,8 @@
 // i.e. there is currently only support for a single oscillator in a TRX.
 // Support for LO based on SI570
 #define USE_OSC_SI570
+// Support for LO based on SI569 (fitted in place of SI570)
+#define USE_OSC_SI569
 // Support for LO based on SI5351
 #define USE_OSC_SI5351A
 // Support for DUC/DDC board
@@ -243,7 +245,7 @@
 
 //******************************CONFIGURATION_LOGIC_CHECKS************************************//
 
-#if !defined(USE_OSC_SI570) && !defined(USE_OSC_SI5351A) && !defined(USE_OSC_DUCDDC)
+#if !defined(USE_OSC_SI570) && !defined(USE_OSC_SI5351A) && !defined(USE_OSC_DUCDDC) && !defined(USE_OSC_SI569)
     #error At least one of supported oscillators should be enabled.
 #endif
 

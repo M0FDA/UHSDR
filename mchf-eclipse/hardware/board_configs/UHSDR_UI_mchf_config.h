@@ -42,6 +42,7 @@
 
 #define SI570_I2C               (&hi2c1)
 #define SI5351A_I2C             (&hi2c1)
+#define SI569_I2C               (&hi2c1)
 #define MCP_I2C                 (&hi2c1)
 
 #define CODEC_I2C               (&hi2c2)

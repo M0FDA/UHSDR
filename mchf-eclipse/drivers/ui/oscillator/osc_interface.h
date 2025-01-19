@@ -1,14 +1,14 @@
 /*  -*-  mode: c; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4; coding: utf-8  -*-  */
 /************************************************************************************
- **                                                                                 **
- **                                        UHSDR                                    **
- **               a powerful firmware for STM32 based SDR transceivers              **
- **                                                                                 **
- **---------------------------------------------------------------------------------**
- **                                                                                 **
- **  File name:                                                                     **
- **  Description:                                                                   **
- **  Last Modified:                                                                 **
+ **                                                                                **
+ **                                        UHSDR                                   **
+ **               a powerful firmware for STM32 based SDR transceivers             **
+ **                                                                                **
+ **--------------------------------------------------------------------------------**
+ **                                                                                **
+ **  File name:                                                                    **
+ **  Description:                                                                  **
+ **  Last Modified:                                                                **
  **  Licence:		GNU GPLv3                                                      **
  ************************************************************************************/
 
@@ -34,6 +34,12 @@ typedef enum
     OSC_DUMMY,
     OSC_SI570,
     OSC_SI5351A,
+    OSC_SI569,
+    OSC_SI569CMOS,
+    OSC_SI569A,
+    OSC_SI569B,
+    OSC_SI569C,
+    OSC_SI569D,
 } Oscillator_Type_t;
 
 typedef struct

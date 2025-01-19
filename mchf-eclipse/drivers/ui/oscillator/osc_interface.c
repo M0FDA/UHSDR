@@ -1,14 +1,14 @@
 /*  -*-  mode: c; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4; coding: utf-8  -*-  */
 /************************************************************************************
- **                                                                                 **
- **                                        UHSDR                                    **
- **               a powerful firmware for STM32 based SDR transceivers              **
- **                                                                                 **
- **---------------------------------------------------------------------------------**
- **                                                                                 **
- **  File name:                                                                     **
- **  Description:                                                                   **
- **  Last Modified:                                                                 **
+ **                                                                                **
+ **                                        UHSDR                                   **
+ **               a powerful firmware for STM32 based SDR transceivers             **
+ **                                                                                **
+ **--------------------------------------------------------------------------------**
+ **                                                                                **
+ **  File name:                                                                    **
+ **  Description:                                                                  **
+ **  Last Modified:                                                                **
  **  Licence:		GNU GPLv3                                                      **
  ************************************************************************************/
 
@@ -16,6 +16,7 @@
 #include "osc_interface.h"
 #include "uhsdr_board.h"
 #include "osc_si570.h"
+#include "osc_si569.h"
 #include "osc_si5351a.h"
 #include "soft_tcxo.h"
 // -------------------------------------------------------------------------------------
@@ -100,6 +101,12 @@ void Osc_Init()
 	if (osc == NULL)
 	{
 		Si570_Init();
+	}
+#endif
+#ifdef USE_OSC_SI569
+	if (osc == NULL)
+	{
+		Si569_Init();
 	}
 #endif
 	if (osc == NULL)

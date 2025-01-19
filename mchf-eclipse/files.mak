@@ -26,6 +26,7 @@ drivers/usb/app/usbd_cdc_if.c \
 drivers/usb/app/usbd_desc.c \
 drivers/ui/oscillator/soft_tcxo.c \
 drivers/ui/oscillator/osc_si570.c \
+drivers/ui/oscillator/osc_si569.c \
 drivers/ui/oscillator/osc_si5351a.c \
 drivers/ui/oscillator/osc_interface.c \
 drivers/ui/menu/ui_menu.c \
